@@ -35,6 +35,14 @@
                         <li><a href="#" class="text-white">管理员：syske</a></li>
                     </ul>
                 </div>
+		<div class="col-sm-8 col-md-7 py-4">
+                    <h4 class="text-white">管理菜单</h4>
+                    <p class="text-muted">设置主机</p>
+		    <div id = 'button-group'>
+		       <input id='host' type='text'>
+                       <button onclick="saveHost()">设置</button>
+		    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -149,9 +157,20 @@
 <script src="https://getbootstrap.net/example/assets/dist/js/bootstrap.bundle.js"></script>
 <script src={{ url_for('static', filename='js/script.js')}}></script>
 <script>
-function taggleCmd() {
 
- var ws = new WebSocket("ws://192.168.0.101:80");
+function saveHost() {
+    var host = $("#host").val();
+    localStorage.setItem("host", host);
+}
+
+function taggleCmd() {
+    var host = localStorage.getItem('host');
+    var ws;
+    if (host != undefined && host != null) {
+        ws = new WebSocket("ws://" + host + ":80");
+    } else {
+        ws = new WebSocket("ws://192.168.0.101:80");
+    }
     //申请一个WebSocket对象，参数是服务端地址，同http协议使用http://开头一样，WebSocket协议的u   rl使用ws://开头，另外安全的WebSocket协议使用wss://开头
     ws.onopen = function(){
     　　//当WebSocket创建成功时，触发onopen事件
