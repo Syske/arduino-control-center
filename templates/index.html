@@ -7,9 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Arduino控制中心</title>
     <link rel="stylesheet" href={{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}>
-    <link rel="stylesheet" href={{ url_for('static', filename='css/bootstrap/bootstrap.min.css.map') }}>
     <link rel="stylesheet" href={{ url_for('static', filename='css/login/style.default.css')}} id="theme-stylesheet">
-    <link rel="stylesheet" href={{ url_for('static', filename='css/font-Awesome/font-Awesome.min.css')}} id="font-stylesheet">
+    <link rel="stylesheet" href={{ url_for('static', filename='css/font-Awesome/font-awesome.min.css')}} id="font-stylesheet">
     <link rel="stylesheet" href={{ url_for('static', filename='css/index/main.css')}} id="main">
 
     <!--核心样式-->
@@ -152,9 +151,9 @@
 </footer>
 
 
-<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://cdn.bootcss.com/Base64/1.0.2/base64.js"></script>
-<script src="https://getbootstrap.net/example/assets/dist/js/bootstrap.bundle.js"></script>
+<script src={{ url_for('static', filename='js/jquery/jquery-2.1.4.min.js')}}></script>
+<script src={{ url_for('static', filename='js/base64.js')}}></script>
+<script src={{ url_for('static', filename='js/bootstrap/bootstrap.bundle.js')}}></script>
 <script src={{ url_for('static', filename='js/script.js')}}></script>
 <script>
 
